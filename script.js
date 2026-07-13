@@ -10,31 +10,50 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
-const bookingForm = document.getElementById('bookingForm');
-bookingForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(bookingForm);
-  const text = `Hola, quiero consultar disponibilidad en Hotel Sussex Córdoba.%0A%0AEntrada: ${data.get('checkin')}%0ASalida: ${data.get('checkout')}%0AHuéspedes: ${data.get('guests')}%0AHabitación: ${data.get('room')}`;
-  window.open(`https://wa.me/5493515441281?text=${text}`, '_blank');
-});
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
 
-const contactForm = document.getElementById('contactForm');
-contactForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(contactForm);
-  const subject = encodeURIComponent('Consulta desde la nueva web');
-  const body = encodeURIComponent(`Nombre: ${data.get('name')}\nEmail: ${data.get('email')}\n\nMensaje:\n${data.get('message')}`);
-  window.location.href = `mailto:reservas@hotelsussexcba.com.ar?subject=${subject}&body=${body}`;
-});
-
-const today = new Date().toISOString().split('T')[0];
-const checkin = document.querySelector('input[name="checkin"]');
-const checkout = document.querySelector('input[name="checkout"]');
-if (checkin && checkout) {
-  checkin.min = today;
-  checkout.min = today;
-  checkin.addEventListener('change', () => {
-    checkout.min = checkin.value;
-    if (checkout.value && checkout.value < checkin.value) checkout.value = checkin.value;
+function setMinDates() {
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+  const fmt = d => d.toISOString().slice(0, 10);
+  document.querySelectorAll('input[type="date"]').forEach(input => input.min = fmt(today));
+  ['checkin','bottomCheckin'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && !el.value) el.value = fmt(today);
+  });
+  ['checkout','bottomCheckout'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && !el.value) el.value = fmt(tomorrow);
   });
 }
+setMinDates();
+
+function sendBooking(prefix = '') {
+  const checkin = document.getElementById(prefix + 'Checkin')?.value || document.getElementById('checkin')?.value;
+  const checkout = document.getElementById(prefix + 'Checkout')?.value || document.getElementById('checkout')?.value;
+  const guests = document.getElementById(prefix + 'Guests')?.value || document.getElementById('guests')?.value;
+  const room = document.getElementById('room')?.value || 'Habitación a confirmar';
+  const text = `Hola Hotel Sussex, quiero consultar disponibilidad. Entrada: ${checkin}. Salida: ${checkout}. Huéspedes: ${guests}. Habitación: ${room}.`;
+  window.open(`https://wa.me/543515441281?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+document.getElementById('bookingForm')?.addEventListener('submit', (e) => { e.preventDefault(); sendBooking(''); });
+document.getElementById('bottomBookingForm')?.addEventListener('submit', (e) => { e.preventDefault(); sendBooking('bottom'); });
+
+document.querySelectorAll('[data-room]').forEach(button => {
+  button.addEventListener('click', () => {
+    const roomSelect = document.getElementById('room');
+    if (!roomSelect) return;
+    const value = button.getAttribute('data-room');
+    [...roomSelect.options].forEach(option => {
+      if (option.textContent === value) roomSelect.value = option.textContent;
+    });
+  });
+});

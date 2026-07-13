@@ -3,231 +3,247 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hotel Sussex Córdoba | Demo web con reservas</title>
-  <meta name="description" content="Demo modernizada para Hotel Sussex Córdoba con motor de consulta de reservas, habitaciones, eventos y contacto." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Hotel Sussex Córdoba: hotel histórico en el microcentro de Córdoba, con habitaciones, desayuno buffet, Wi-Fi, eventos y reservas online." />
+  <title>Hotel Sussex Córdoba | Hotel histórico en el centro</title>
+  <link rel="preconnect" href="https://www.hotelsussexcba.com.ar" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header" id="top">
+  <header class="site-header" id="inicio">
     <div class="topbar">
       <span>Wi‑Fi libre</span>
-      <a href="tel:+543514229070">+54 351 422‑9070</a>
-      <a href="https://wa.me/5493515441281" target="_blank" rel="noopener">WhatsApp: +54 9 351 544‑1281</a>
+      <span>+54 351 422‑9070</span>
+      <a href="https://wa.me/543515441281" target="_blank" rel="noreferrer">WhatsApp</a>
     </div>
 
     <nav class="navbar" aria-label="Navegación principal">
-      <a class="brand" href="#top" aria-label="Hotel Sussex Córdoba">
+      <a class="brand" href="#inicio" aria-label="Hotel Sussex Córdoba">
         <span class="brand-mark">S</span>
-        <span><strong>Hotel Sussex</strong><small>Córdoba Centro</small></span>
+        <span class="brand-text">Hotel Sussex</span>
       </a>
-      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
       <div class="nav-links">
+        <a href="#hotel">El hotel</a>
+        <a href="#historia">Historia</a>
         <a href="#habitaciones">Habitaciones</a>
-        <a href="#servicios">Servicios</a>
         <a href="#eventos">Eventos</a>
         <a href="#ubicacion">Ubicación</a>
-        <a href="#contacto">Contacto</a>
-        <a class="btn btn-small" href="#reservas">Reservar</a>
+        <a class="nav-cta" href="#reservas">Reservar</a>
       </div>
     </nav>
-  </header>
 
-  <main>
     <section class="hero">
       <div class="hero-overlay"></div>
-      <div class="hero-content container">
-        <p class="eyebrow">Hotel histórico · Centro de Córdoba</p>
-        <h1>Tu estadía en el corazón de la ciudad</h1>
-        <p class="hero-text">A metros de la Catedral, Manzana Jesuítica, teatros, peatonales, shoppings y el centro financiero. Comodidad, atención 24 hs y una ubicación ideal para turismo, trabajo o eventos.</p>
+      <div class="hero-content reveal">
+        <p class="eyebrow">Centro histórico de Córdoba</p>
+        <h1>Una estadía clásica, cómoda y cerca de todo.</h1>
+        <p class="hero-copy">Hotel histórico en San Jerónimo 125, a pasos de la Catedral, la Manzana Jesuítica, teatros, peatonal y zona financiera.</p>
         <div class="hero-actions">
-          <a class="btn" href="#reservas">Buscar disponibilidad</a>
-          <a class="btn btn-ghost" href="https://wa.me/5493515441281" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+          <a class="btn btn-primary" href="#reservas">Reservar ahora</a>
+          <a class="btn btn-secondary" href="https://wa.me/543515441281" target="_blank" rel="noreferrer">Consultar por WhatsApp</a>
         </div>
       </div>
-    </section>
 
-    <section class="booking-card container" id="reservas" aria-labelledby="reservas-title">
-      <div>
-        <p class="eyebrow">Reserva directa</p>
-        <h2 id="reservas-title">Consultá disponibilidad</h2>
-      </div>
-      <form class="booking-form" id="bookingForm">
+      <form class="booking-card" id="bookingForm" aria-label="Consulta de reserva">
+        <h2>Buscar disponibilidad</h2>
         <label>Entrada
-          <input type="date" name="checkin" required>
+          <input type="date" id="checkin" required />
         </label>
         <label>Salida
-          <input type="date" name="checkout" required>
+          <input type="date" id="checkout" required />
         </label>
         <label>Huéspedes
-          <select name="guests" required>
-            <option value="1">1 huésped</option>
-            <option value="2" selected>2 huéspedes</option>
-            <option value="3">3 huéspedes</option>
-            <option value="4">4 huéspedes</option>
-            <option value="5">5 huéspedes</option>
+          <select id="guests">
+            <option>1 huésped</option>
+            <option selected>2 huéspedes</option>
+            <option>3 huéspedes</option>
+            <option>4 huéspedes</option>
+            <option>5 huéspedes</option>
           </select>
         </label>
         <label>Habitación
-          <select name="room" required>
-            <option>Single Superior</option>
-            <option>Doble Matrimonial</option>
-            <option>Triple Matrimonial</option>
+          <select id="room">
+            <option>Single superior</option>
+            <option selected>Doble matrimonial</option>
+            <option>Triple matrimonial</option>
             <option>Departamento x5</option>
           </select>
         </label>
-        <button class="btn" type="submit">Reservar ahora</button>
+        <button class="btn btn-primary full" type="submit">Consultar reserva</button>
+        <a class="external-book" href="https://www.todoalojamiento.com/hotel/Sussex" target="_blank" rel="noreferrer">Ir al motor actual de reservas</a>
       </form>
-      <p class="booking-note">Esta demo envía la consulta por WhatsApp. En la versión final puede conectarse a un motor de reservas real o al proveedor actual.</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="quick-facts" aria-label="Servicios destacados">
+      <article><strong>Ubicación central</strong><span>Atractivos turísticos a pie</span></article>
+      <article><strong>Desayuno buffet</strong><span>Incluido en la estadía</span></article>
+      <article><strong>Wi‑Fi libre</strong><span>En habitaciones y áreas comunes</span></article>
+      <article><strong>Recepción 24 hs</strong><span>Atención permanente</span></article>
     </section>
 
-    <section class="trust-strip">
-      <div class="container trust-grid">
-        <div><strong>Recepción 24 hs</strong><span>Atención todos los días</span></div>
-        <div><strong>Desayuno buffet</strong><span>Incluido en la estadía</span></div>
-        <div><strong>Wi‑Fi libre</strong><span>En habitaciones y áreas comunes</span></div>
-        <div><strong>Cochera</strong><span>Sujeta a disponibilidad</span></div>
+    <section class="section split" id="hotel">
+      <div class="section-copy reveal">
+        <p class="eyebrow">El Hotel</p>
+        <h2>Tradición renovada en el corazón de la ciudad.</h2>
+        <p>Una propuesta pensada para quienes viajan por trabajo, turismo o eventos y buscan una ubicación estratégica, atención cercana y servicios esenciales bien resueltos.</p>
+        <p>El rediseño pone en primer plano la reserva directa, las habitaciones y los diferenciales que hoy ya comunica el hotel: Wi‑Fi libre, desayuno buffet, vistas panorámicas en habitaciones superiores y cochera sujeta a disponibilidad.</p>
+      </div>
+      <div class="image-stack reveal">
+        <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/06/slide4_new2-1-540x540.jpg" alt="Interior del Hotel Sussex Córdoba" />
+        <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/05/DSC02276_284371-1-540x540.jpg" alt="Espacios comunes del Hotel Sussex Córdoba" />
       </div>
     </section>
 
-    <section class="section container" id="habitaciones">
-      <div class="section-heading">
-        <p class="eyebrow">Confort + ubicación</p>
-        <h2>Habitaciones para cada viaje</h2>
+    <section class="section story" id="historia">
+      <div class="story-card reveal">
+        <p class="eyebrow">Nuestra Historia</p>
+        <h2>Un hotel histórico que forma parte de Córdoba.</h2>
+        <p>Sussex se presenta como la primera cadena hotelera del interior del país y como un hotel que ya es patrimonio de los cordobeses. La nueva web recupera esa identidad, pero con una lectura más limpia, visual y actual.</p>
+        <a class="text-link" href="#galeria">Ver imágenes del hotel</a>
+      </div>
+      <div class="story-metrics reveal" aria-label="Datos destacados">
+        <div><strong>56</strong><span>años de trayectoria</span></div>
+        <div><strong>24/7</strong><span>atención al huésped</span></div>
+        <div><strong>Centro</strong><span>microcentro de Córdoba</span></div>
+      </div>
+    </section>
+
+    <section class="section rooms" id="habitaciones">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Habitaciones</p>
+        <h2>Títulos claros, fotos grandes y reserva rápida.</h2>
         <p>Todas las habitaciones incluyen Wi‑Fi libre y desayuno buffet. Las superiores cuentan con vistas panorámicas a la ciudad.</p>
       </div>
-      <div class="rooms-grid">
-        <article class="room-card">
-          <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/10/home_ss-1.jpg" alt="Habitación Single Superior">
-          <div class="room-body">
-            <span class="tag">1 huésped</span>
-            <h3>Single Superior</h3>
-            <p>Ideal para ejecutivos o viajeros individuales. TV Led 32”, secador de pelo, desayuno y Wi‑Fi.</p>
-            <a href="#reservas" class="link-arrow">Reservar esta habitación</a>
+
+      <div class="room-grid">
+        <article class="room-card reveal">
+          <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/10/home_ss-1.jpg" alt="Habitación single superior" />
+          <div>
+            <span class="room-tag">Superior</span>
+            <h3>Single</h3>
+            <p>Para 1 huésped. Ideal para viajes ejecutivos.</p>
+            <ul><li>Wi‑Fi</li><li>Desayuno buffet</li><li>TV LED 32”</li><li>Vistas panorámicas</li></ul>
+            <a class="btn btn-outline" href="#reservas" data-room="Single superior">Reservar</a>
           </div>
         </article>
-        <article class="room-card">
-          <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/10/home_dms-1.jpg" alt="Habitación Doble Matrimonial">
-          <div class="room-body">
-            <span class="tag">2 huéspedes</span>
-            <h3>Doble Matrimonial</h3>
-            <p>Una opción cómoda para parejas o viajes de trabajo, con vistas panorámicas y servicios incluidos.</p>
-            <a href="#reservas" class="link-arrow">Reservar esta habitación</a>
+        <article class="room-card reveal">
+          <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/10/home_dms-1.jpg" alt="Habitación doble matrimonial" />
+          <div>
+            <span class="room-tag">Superior</span>
+            <h3>Doble matrimonial</h3>
+            <p>Para 2 huéspedes. Confort y ubicación para disfrutar la ciudad.</p>
+            <ul><li>Wi‑Fi</li><li>Desayuno buffet</li><li>TV LED 32”</li><li>Secador de pelo</li></ul>
+            <a class="btn btn-outline" href="#reservas" data-room="Doble matrimonial">Reservar</a>
           </div>
         </article>
-        <article class="room-card">
-          <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/10/home_tms-1.jpg" alt="Habitación Triple Matrimonial">
-          <div class="room-body">
-            <span class="tag">3 huéspedes</span>
-            <h3>Triple Matrimonial</h3>
-            <p>Práctica para familias o grupos pequeños que buscan alojarse en pleno centro de Córdoba.</p>
-            <a href="#reservas" class="link-arrow">Reservar esta habitación</a>
+        <article class="room-card reveal">
+          <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/10/home_tms-1.jpg" alt="Habitación triple matrimonial" />
+          <div>
+            <span class="room-tag">Superior</span>
+            <h3>Triple matrimonial</h3>
+            <p>Para 3 huéspedes. Una opción cómoda para familias.</p>
+            <ul><li>Wi‑Fi</li><li>Desayuno buffet</li><li>TV LED 32”</li><li>Vistas panorámicas</li></ul>
+            <a class="btn btn-outline" href="#reservas" data-room="Triple matrimonial">Reservar</a>
           </div>
         </article>
-        <article class="room-card">
-          <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/10/home_d4s-1.jpg" alt="Departamento para cinco huéspedes">
-          <div class="room-body">
-            <span class="tag">Hasta 5 huéspedes</span>
+        <article class="room-card reveal">
+          <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/10/home_d4s-1.jpg" alt="Departamento para cinco huéspedes" />
+          <div>
+            <span class="room-tag">Familiar</span>
             <h3>Departamento x5</h3>
-            <p>Habitaciones conectadas para grupos o familias, con desayuno buffet y Wi‑Fi libre.</p>
-            <a href="#reservas" class="link-arrow">Reservar esta habitación</a>
+            <p>Habitaciones conectadas para 5 huéspedes.</p>
+            <ul><li>Wi‑Fi</li><li>Desayuno buffet</li><li>TV LED 32”</li><li>Mayor capacidad</li></ul>
+            <a class="btn btn-outline" href="#reservas" data-room="Departamento x5">Reservar</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="feature-section" id="servicios">
-      <div class="container feature-grid">
-        <div>
-          <p class="eyebrow">Servicios personalizados</p>
-          <h2>Todo lo necesario para una estadía simple y cómoda</h2>
-          <p>Una experiencia pensada para huéspedes que necesitan resolver rápido: buena ubicación, atención permanente, desayuno, conectividad y acceso a los principales puntos turísticos y comerciales.</p>
-        </div>
-        <div class="services-list">
-          <div><span>01</span><strong>Atención 24/7</strong><p>Recepción disponible todos los días del año.</p></div>
-          <div><span>02</span><strong>Desayuno buffet</strong><p>Incluido para empezar el día sin moverse del hotel.</p></div>
-          <div><span>03</span><strong>Ubicación estratégica</strong><p>Microcentro, cerca de atractivos, teatros y zona financiera.</p></div>
-          <div><span>04</span><strong>Eventos</strong><p>Espacios para reuniones, capacitaciones y encuentros corporativos.</p></div>
-        </div>
+    <section class="section gallery" id="galeria">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Galería</p>
+        <h2>Imágenes reales del hotel, con estética más actual.</h2>
+      </div>
+      <div class="gallery-grid reveal">
+        <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/09/desayuno1-540x540.jpg" alt="Desayuno buffet" />
+        <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/01/DSC_9816-540x540.jpg" alt="Salón para eventos" />
+        <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/05/0_tms-1-540x540.jpg" alt="Habitación triple" />
+        <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/05/Vista_Superior_403465-1-540x540.jpg" alt="Vista panorámica desde habitación superior" />
       </div>
     </section>
 
-    <section class="section container" id="eventos">
-      <div class="split">
-        <div>
-          <p class="eyebrow">Sussex Eventos</p>
-          <h2>Multiespacio para reuniones y encuentros</h2>
-          <p>Una propuesta en el centro estratégico de negocios y entretenimiento de Córdoba. Ideal para actividades corporativas, capacitaciones, presentaciones y encuentros privados.</p>
-          <a class="btn" href="#contacto">Consultar por eventos</a>
-        </div>
-        <img src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/06/slide4_new2-1-540x540.jpg" alt="Espacio de eventos del hotel">
+    <section class="section split events" id="eventos">
+      <div class="section-copy reveal">
+        <p class="eyebrow">Sussex Eventos</p>
+        <h2>Multiespacio para reuniones, capacitaciones y encuentros.</h2>
+        <p>Una sección más clara para consultas corporativas o sociales, con formulario directo, fotos del salón y llamada a la acción específica.</p>
+        <a class="btn btn-primary" href="https://wa.me/543515441281?text=Hola%20Hotel%20Sussex%2C%20quiero%20consultar%20por%20un%20evento" target="_blank" rel="noreferrer">Consultar evento</a>
       </div>
+      <img class="large-photo reveal" src="https://www.hotelsussexcba.com.ar/wp-content/uploads/2019/01/DSC_9816-540x540.jpg" alt="Multiespacio de eventos del Hotel Sussex" />
     </section>
 
-    <section class="location-section" id="ubicacion">
-      <div class="container location-grid">
-        <div>
-          <p class="eyebrow">Cerca de todo</p>
-          <h2>San Jerónimo 125, Centro, Córdoba</h2>
-          <p>Desde el hotel se puede acceder a pie a la Catedral, la Manzana Jesuítica, teatros, peatonales, shoppings y centros comerciales.</p>
-          <ul class="check-list">
-            <li>Centro histórico y financiero</li>
-            <li>Acceso rápido a paseos turísticos</li>
-            <li>Ideal para viajes laborales y escapadas urbanas</li>
+    <section class="section location" id="ubicacion">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Ubicación</p>
+        <h2>San Jerónimo 125, Centro, Córdoba.</h2>
+        <p>Cerca de la Catedral, la Manzana Jesuítica, teatros, shopping, área peatonal y centro financiero/comercial.</p>
+      </div>
+      <div class="location-layout">
+        <div class="map-card reveal">
+          <iframe title="Mapa Hotel Sussex Córdoba" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=San%20Jer%C3%B3nimo%20125%2C%20C%C3%B3rdoba%2C%20Argentina&output=embed"></iframe>
+        </div>
+        <div class="nearby reveal">
+          <h3>Cerca de todo</h3>
+          <ul>
+            <li>Catedral de Córdoba</li>
+            <li>Manzana Jesuítica</li>
+            <li>Teatros y zona cultural</li>
+            <li>Peatonal y centro comercial</li>
+            <li>Zona financiera</li>
           </ul>
-        </div>
-        <div class="map-card">
-          <iframe title="Mapa Hotel Sussex Córdoba" src="https://www.google.com/maps?q=San%20Jer%C3%B3nimo%20125%20C%C3%B3rdoba%20Argentina&output=embed" loading="lazy"></iframe>
+          <a class="text-link" href="https://www.google.com/maps/search/?api=1&query=San+Jer%C3%B3nimo+125+C%C3%B3rdoba+Argentina" target="_blank" rel="noreferrer">Abrir en Google Maps</a>
         </div>
       </div>
     </section>
 
-    <section class="section container" id="contacto">
-      <div class="contact-card">
+    <section class="section reservation" id="reservas">
+      <div class="reservation-panel reveal">
         <div>
-          <p class="eyebrow">Contacto</p>
-          <h2>¿Necesitás ayuda con tu reserva?</h2>
-          <p>Estamos disponibles las 24 horas para responder consultas sobre habitaciones, disponibilidad, eventos o servicios.</p>
-          <div class="contact-lines">
-            <a href="tel:+543514229070">+54 351 422‑9070</a>
-            <a href="https://wa.me/5493515441281" target="_blank" rel="noopener">+54 9 351 544‑1281</a>
-            <a href="mailto:reservas@hotelsussexcba.com.ar">reservas@hotelsussexcba.com.ar</a>
-          </div>
+          <p class="eyebrow">Reserva directa</p>
+          <h2>Consultá disponibilidad en segundos.</h2>
+          <p>Esta demo envía la consulta por WhatsApp con los datos de estadía. Luego puede conectarse al motor de reservas actual o a uno nuevo.</p>
         </div>
-        <form class="contact-form" id="contactForm">
-          <label>Nombre
-            <input name="name" type="text" placeholder="Tu nombre" required>
-          </label>
-          <label>Email
-            <input name="email" type="email" placeholder="tu@email.com" required>
-          </label>
-          <label>Mensaje
-            <textarea name="message" rows="4" placeholder="Escribí tu consulta" required></textarea>
-          </label>
-          <button class="btn" type="submit">Enviar consulta</button>
+        <form class="inline-booking" id="bottomBookingForm">
+          <input type="date" id="bottomCheckin" aria-label="Fecha de entrada" required />
+          <input type="date" id="bottomCheckout" aria-label="Fecha de salida" required />
+          <select id="bottomGuests" aria-label="Cantidad de huéspedes">
+            <option>1 huésped</option>
+            <option selected>2 huéspedes</option>
+            <option>3 huéspedes</option>
+            <option>4 huéspedes</option>
+            <option>5 huéspedes</option>
+          </select>
+          <button class="btn btn-primary" type="submit">Enviar consulta</button>
         </form>
       </div>
     </section>
   </main>
 
-  <a class="whatsapp-float" href="https://wa.me/5493515441281" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">WhatsApp</a>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <strong>Hotel Sussex Córdoba</strong>
-        <p>Demo de rediseño web con opción de reservas.</p>
-      </div>
-      <div>
-        <a href="#reservas">Reservar</a>
-        <a href="#habitaciones">Habitaciones</a>
-        <a href="#contacto">Contacto</a>
-      </div>
+  <footer class="footer" id="contacto">
+    <div>
+      <strong>Hotel Sussex Córdoba</strong>
+      <p>San Jerónimo 125, Centro, Córdoba, Argentina</p>
+    </div>
+    <div>
+      <a href="tel:+543514229070">+54 351 422‑9070</a>
+      <a href="https://wa.me/543515441281" target="_blank" rel="noreferrer">+54 9 351 544‑1281</a>
+      <a href="mailto:reservas@hotelsussexcba.com.ar">reservas@hotelsussexcba.com.ar</a>
     </div>
   </footer>
 
+  <a class="whatsapp-float" href="https://wa.me/543515441281" target="_blank" rel="noreferrer" aria-label="Consultar por WhatsApp">WhatsApp</a>
   <script src="script.js"></script>
 </body>
 </html>
