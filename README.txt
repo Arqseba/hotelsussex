@@ -24,3 +24,5 @@ Reservas:
 Imágenes:
 - La demo usa imágenes públicas del sitio actual del hotel mediante URL externa.
 - Para producción conviene descargar, optimizar y alojar las imágenes en el propio servidor.
+
+Actualización: paleta principal modificada de bordeau a dorado.
